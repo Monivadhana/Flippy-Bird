@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveAlongDirection : MonoBehaviour
 {
-    [SerializeField] Vector3 direction;
-  [SerializeField] float speed = 1f;
+    [SerializeField] Vector2 direction;
+  [SerializeField] float speed = -1f;
 
   private void Update()
   {

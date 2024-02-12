@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnPipes : MonoBehaviour
@@ -10,15 +11,21 @@ public class SpawnPipes : MonoBehaviour
     [SerializeField] float spawnHeight;
     private float spawnTimerDelta;
     public static float spawnSpeedMultiplier = 1f;
+
+    private Transform transform;
     
+    private void Start()
+    {
+        transform = GetComponent<Transform>();
+    }
+
     private void Update()
     {
         if(spawnTimerDelta <= 0f)
         {
-            Vector3 pos = transform.position + new Vector3(0f,
-                        Random.Range(-spawnHeight, spawnHeight), 0f);
-                        Spawn(pos);
-                        spawnTimerDelta = spawnInterval;
+            Vector3 pos = transform.position + new Vector3(0f, Random.Range(-spawnHeight, spawnHeight), 0f);
+            Spawn(pos);
+            spawnTimerDelta = spawnInterval;
         }
         spawnTimerDelta -= Time.deltaTime;
     }
