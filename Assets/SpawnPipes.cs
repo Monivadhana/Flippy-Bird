@@ -25,7 +25,7 @@ public class SpawnPipes : MonoBehaviour
         {
             Vector3 pos = transform.position + new Vector3(0f, Random.Range(-spawnHeight, spawnHeight), 0f);
             Spawn(pos);
-            spawnTimerDelta = spawnInterval;
+            spawnTimerDelta = spawnInterval * (1 / spawnSpeedMultiplier);
         }
         spawnTimerDelta -= Time.deltaTime;
     }
